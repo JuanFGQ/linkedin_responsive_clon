@@ -5,6 +5,11 @@ class TabletPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      backgroundColor: Colors.red,
+      body: Center(
+        child: Text('TABLET PAGE'),
+      ),
+    );
   }
 }

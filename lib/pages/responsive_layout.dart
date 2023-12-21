@@ -15,11 +15,16 @@ class ResponsiveHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (constraints.maxWidth < 500) {
+        if (constraints.maxWidth < 600) {
+          print(constraints.maxWidth);
           return mobileWidget;
-        } else if (constraints.maxWidth < 1100) {
+        } else if (constraints.maxWidth < 900) {
+          print(constraints.maxWidth);
+
           return tabletWidget;
         } else {
+          print(constraints.maxWidth);
+
           return desktopWidget;
         }
       },
