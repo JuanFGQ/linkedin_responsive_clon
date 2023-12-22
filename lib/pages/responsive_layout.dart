@@ -1,33 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:linkedin_responsive_clon/pages/desktop.dart';
+import 'package:linkedin_responsive_clon/pages/mobile.dart';
+import 'package:linkedin_responsive_clon/pages/tablet.dart';
+import 'package:linkedin_responsive_clon/provider/provider.dart';
+import 'package:provider/provider.dart';
 
 class ResponsiveHome extends StatelessWidget {
-  final Widget mobileWidget;
-  final Widget tabletWidget;
-  final Widget desktopWidget;
-
-  const ResponsiveHome(
-      {super.key,
-      required this.mobileWidget,
-      required this.tabletWidget,
-      required this.desktopWidget});
+  const ResponsiveHome({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        if (constraints.maxWidth < 600) {
-          print(constraints.maxWidth);
-          return mobileWidget;
-        } else if (constraints.maxWidth < 900) {
-          print(constraints.maxWidth);
+    final size = MediaQuery.of(context).size.width;
 
-          return tabletWidget;
-        } else {
-          print(constraints.maxWidth);
+    if (size < 600) {
+      print('MOBILE $size');
 
-          return desktopWidget;
-        }
-      },
-    );
+      return MobilePage();
+    } else if (size < 900) {
+      print('TABLET $size');
+      return TabletPage();
+    } else {
+      print('DESKTOP $size');
+
+      return const DesktopPage();
+    }
+    //   },
+    // );
   }
 }
