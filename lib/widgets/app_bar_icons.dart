@@ -16,24 +16,27 @@ class AppBarIcons extends StatelessWidget {
     final size = MediaQuery.of(context).size.width;
 
     return Expanded(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          IconButton(
-              onPressed: onPressed,
-              icon: Icon(
-                icon,
-                color: Colors.grey,
-                size: 30,
-              )),
-          Visibility(
-            visible: size < 670 ? false : true,
-            child: Text(
-              text,
-              style: const TextStyle(color: Colors.grey),
-            ),
-          )
-        ],
+      child: Align(
+        alignment: Alignment.center,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            IconButton(
+                onPressed: onPressed,
+                icon: Icon(
+                  icon,
+                  color: Colors.grey,
+                  size: 30,
+                )),
+            Visibility(
+              visible: size < 670 ? false : true,
+              child: Text(
+                text,
+                style: const TextStyle(color: Colors.grey),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

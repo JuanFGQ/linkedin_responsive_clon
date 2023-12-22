@@ -14,15 +14,17 @@ class AppBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      color: Colors.white,
       width: double.infinity,
-      height: 65,
       child: Row(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
             margin: const EdgeInsets.all(10),
-            width: 50,
-            height: 50,
+            width: 40,
+            height: 40,
             child: const Image(image: AssetImage('assets/linkedin.png')),
           ),
           searchItem,
@@ -42,6 +44,7 @@ class AppBarWidget extends StatelessWidget {
               // child: Text('asdas'),
             ),
           ),
+          menuItem
         ],
       ),
     );

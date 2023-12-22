@@ -3,7 +3,6 @@ import 'package:linkedin_responsive_clon/pages/desktop.dart';
 import 'package:linkedin_responsive_clon/pages/mobile.dart';
 import 'package:linkedin_responsive_clon/pages/tablet.dart';
 import 'package:linkedin_responsive_clon/provider/provider.dart';
-import 'package:provider/provider.dart';
 
 class ResponsiveHome extends StatelessWidget {
   const ResponsiveHome({super.key});

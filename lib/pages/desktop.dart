@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:linkedin_responsive_clon/costants/app_bar.dart';
+import 'package:linkedin_responsive_clon/costants/constants.dart';
 
 class DesktopPage extends StatelessWidget {
   const DesktopPage({super.key});
@@ -7,16 +8,12 @@ class DesktopPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey,
       body: Column(
         children: [
           AppBarWidget(
-            searchItem: Expanded(
-              child: TextFormField(
-                decoration: const InputDecoration(
-                    labelText: 'Buscar', prefixIcon: Icon(Icons.search)),
-              ),
-            ),
+            menuItem: menuIcon,
+            searchItem: Expanded(child: searchTextField),
           )
         ],
       ),
