@@ -1,22 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:linkedin_responsive_clon/costants/app_bar.dart';
+import 'package:linkedin_responsive_clon/widgets/app_bar.dart';
 import 'package:linkedin_responsive_clon/costants/constants.dart';
+import 'package:linkedin_responsive_clon/widgets/user_profile.dart';
+
+import '../widgets/show_more.dart';
+import '../widgets/user_create_post.dart';
+import '../widgets/user_post.dart';
 
 class TabletPage extends StatelessWidget {
-  // final bool searchBar;
-  // const TabletPage({required this.searchBar});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey,
-        body: Column(
-          children: [
-            AppBarWidget(
-              menuItem: menuIcon,
-              searchItem: Expanded(child: searchTextField),
-            )
-          ],
+        backgroundColor: scaffoldBackgroundColor,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              AppBarWidget(
+                menuItem: menuIcon,
+                searchItem: searchTextField,
+              ),
+              const UserProfile(),
+              const MostrarMas(),
+              const UserCreatePost(),
+              const SizedBox(height: 20),
+              const UserPost(),
+              const SizedBox(height: 20),
+              const UserPost(),
+            ],
+          ),
         ));
   }
 }
