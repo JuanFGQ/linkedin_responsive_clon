@@ -14,7 +14,7 @@ class UserPost extends StatelessWidget {
     return LayoutBuilder(builder: (context, constraints) {
       final size = constraints.maxWidth;
       return Container(
-        width: double.infinity,
+        width: sizeM.width * 1,
         margin: EdgeInsets.only(
             top: 15, left: dynamicMargin(size), right: dynamicMargin(size)),
         decoration: BoxDecoration(
@@ -125,50 +125,54 @@ class _PostInformation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      // mainAxisSize: MainAxisSize.max,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          children: [
-            Text('Worldwide Flutter - WWF',
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(176, 0, 0, 0))),
-            // SizedBox(width: 290),
-            // Spacer(),
-            Icon(Icons.more_horiz,
-                size: 30, color: Color.fromARGB(255, 96, 96, 96)),
-            SizedBox(width: 15),
-            FaIcon(FontAwesomeIcons.x,
-                size: 15, color: Color.fromARGB(255, 96, 96, 96))
-          ],
-        ),
-        // SizedBox(height: 1),
-        Text('Juan Felipe Garcia Quintana',
-            style: TextStyle(
-                fontWeight: FontWeight.normal,
-                color: Colors.black54,
-                fontSize: 15)),
-        SizedBox(height: 7),
-        Text('Ver mi blog',
-            style: TextStyle(
-                fontWeight: FontWeight.w700,
-                color: Color.fromARGB(176, 0, 0, 0),
-                fontSize: 13)),
-        SizedBox(height: 1.5),
-        Row(
-          children: [
-            Text('50 minutos',
-                style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.normal,
-                    color: Colors.black54)),
-            SizedBox(width: 10),
-            FaIcon(FontAwesomeIcons.earth, size: 15, color: Colors.black54)
-          ],
-        )
-      ],
+    return Container(
+      margin: EdgeInsets.only(right: 5),
+      color: Colors.red,
+      // width: double.infinity,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Text('Worldwide Flutter - WWF',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(176, 0, 0, 0))),
+              // SizedBox(width: 290),
+              // Spacer(),
+              Icon(Icons.more_horiz,
+                  size: 30, color: Color.fromARGB(255, 96, 96, 96)),
+              SizedBox(width: 15),
+              FaIcon(FontAwesomeIcons.x,
+                  size: 15, color: Color.fromARGB(255, 96, 96, 96)),
+            ],
+          ),
+          // SizedBox(height: 1),
+          Text('Juan Felipe Garcia Quintana',
+              style: TextStyle(
+                  fontWeight: FontWeight.normal,
+                  color: Colors.black54,
+                  fontSize: 15)),
+          SizedBox(height: 7),
+          Text('Ver mi blog',
+              style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  color: Color.fromARGB(176, 0, 0, 0),
+                  fontSize: 13)),
+          SizedBox(height: 1.5),
+          Row(
+            children: [
+              Text('50 minutos',
+                  style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.normal,
+                      color: Colors.black54)),
+              SizedBox(width: 10),
+              FaIcon(FontAwesomeIcons.earth, size: 15, color: Colors.black54)
+            ],
+          )
+        ],
+      ),
     );
   }
 }

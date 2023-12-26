@@ -117,29 +117,25 @@ class _PostOption extends StatelessWidget {
       {super.key, required this.text, required this.icon, required this.color});
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 1),
-      child: Row(
-        children: [
-          Icon(
-            icon,
-            color: color,
-            size: 27,
+    // deleted paddign of left : 1
+    return Row(
+      children: [
+        Icon(
+          icon,
+          color: color,
+          size: 27,
+        ),
+        const SizedBox(width: 10),
+        Expanded(
+          child: Text(
+            text,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 2,
+            style: const TextStyle(
+                fontSize: 15, color: Colors.grey, fontWeight: FontWeight.bold),
           ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Text(
-              text,
-              overflow: TextOverflow.ellipsis,
-              maxLines: 2,
-              style: const TextStyle(
-                  fontSize: 15,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.bold),
-            ),
-          )
-        ],
-      ),
+        )
+      ],
     );
   }
 }

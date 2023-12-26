@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:linkedin_responsive_clon/pages/desktop.dart';
 import 'package:linkedin_responsive_clon/pages/mobile.dart';
+import 'package:linkedin_responsive_clon/pages/mobile_size.dart';
 import 'package:linkedin_responsive_clon/pages/tablet.dart';
 
 class ResponsiveHome extends StatelessWidget {
@@ -13,7 +14,7 @@ class ResponsiveHome extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         if (constraints.maxWidth < 600) {
-          return MobilePage();
+          return MobileSize();
         } else if (constraints.maxWidth < 950) {
           print('TABLET ${constraints.maxWidth}');
           return TabletPage();
