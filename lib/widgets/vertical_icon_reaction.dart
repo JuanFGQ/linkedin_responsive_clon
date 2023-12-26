@@ -10,7 +10,7 @@ class VerticalIcon extends StatelessWidget {
     return Column(
       children: [
         Icon(icon, color: const Color(0xff5e5e5e)),
-        const SizedBox(height: 10),
+        // const SizedBox(height: 10),
         Text(text, style: const TextStyle(color: Color(0xff5e5e5e)))
       ],
     );

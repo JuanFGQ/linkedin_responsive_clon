@@ -14,26 +14,29 @@ class UserPost extends StatelessWidget {
     return LayoutBuilder(builder: (context, constraints) {
       final size = constraints.maxWidth;
       return Container(
-        width: sizeM.width * 1,
+        // width: sizeM.width * 1,
         margin: EdgeInsets.only(
             top: 15, left: dynamicMargin(size), right: dynamicMargin(size)),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(sizeM.width < 600 ? 0 : 15),
             border: Border.all(width: 1, color: borderColor)),
-        child: const Column(
+        child: Column(
           children: [
-            Row(
-              children: [
-                _UserPostedInAGroup(),
-                _PostInformation(),
-              ],
+            SizedBox(
+              width: sizeM.width * 1,
+              child: Row(
+                children: [
+                  const _UserPostedInAGroup(),
+                  _PostInformation(size: sizeM),
+                ],
+              ),
             ),
-            _TextPostContent(),
-            _PostImage(),
-            _FeedbackReactions(),
-            SizedBox(height: 25),
-            _UserPostsInteraction(),
-            SizedBox(height: 25),
+            const _TextPostContent(),
+            const _PostImage(),
+            const _FeedbackReactions(),
+            const SizedBox(height: 25),
+            const _UserPostsInteraction(),
+            const SizedBox(height: 25),
           ],
         ),
       );
@@ -119,59 +122,58 @@ class _TextPostContent extends StatelessWidget {
 }
 
 class _PostInformation extends StatelessWidget {
-  const _PostInformation({
-    super.key,
-  });
+  final Size size;
+  const _PostInformation({required this.size});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(right: 5),
-      color: Colors.red,
-      // width: double.infinity,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Text('Worldwide Flutter - WWF',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(176, 0, 0, 0))),
-              // SizedBox(width: 290),
-              // Spacer(),
-              Icon(Icons.more_horiz,
-                  size: 30, color: Color.fromARGB(255, 96, 96, 96)),
-              SizedBox(width: 15),
-              FaIcon(FontAwesomeIcons.x,
-                  size: 15, color: Color.fromARGB(255, 96, 96, 96)),
-            ],
-          ),
-          // SizedBox(height: 1),
-          Text('Juan Felipe Garcia Quintana',
-              style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  color: Colors.black54,
-                  fontSize: 15)),
-          SizedBox(height: 7),
-          Text('Ver mi blog',
-              style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  color: Color.fromARGB(176, 0, 0, 0),
-                  fontSize: 13)),
-          SizedBox(height: 1.5),
-          Row(
-            children: [
-              Text('50 minutos',
-                  style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.black54)),
-              SizedBox(width: 10),
-              FaIcon(FontAwesomeIcons.earth, size: 15, color: Colors.black54)
-            ],
-          )
-        ],
+    return Expanded(
+      child: Container(
+        margin: const EdgeInsets.only(right: 5),
+        child: const Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Text('Worldwide Flutter - WWF',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(176, 0, 0, 0))),
+                // SizedBox(width: 290),
+                Spacer(),
+                Icon(Icons.more_horiz,
+                    size: 30, color: Color.fromARGB(255, 96, 96, 96)),
+                SizedBox(width: 15),
+                FaIcon(FontAwesomeIcons.x,
+                    size: 15, color: Color.fromARGB(255, 96, 96, 96)),
+              ],
+            ),
+            // SizedBox(height: 1),
+            Text('Juan Felipe Garcia Quintana',
+                style: TextStyle(
+                    fontWeight: FontWeight.normal,
+                    color: Colors.black54,
+                    fontSize: 15)),
+            SizedBox(height: 7),
+            Text('Ver mi blog',
+                style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    color: Color.fromARGB(176, 0, 0, 0),
+                    fontSize: 13)),
+            SizedBox(height: 1.5),
+            Row(
+              children: [
+                Text('50 minutos',
+                    style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.black54)),
+                SizedBox(width: 10),
+                FaIcon(FontAwesomeIcons.earth, size: 15, color: Colors.black54)
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
