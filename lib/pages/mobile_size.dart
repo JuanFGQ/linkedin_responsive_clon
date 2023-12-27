@@ -34,7 +34,7 @@ class _MobileSizeState extends State<MobileSize> {
     final size = MediaQuery.of(context).size;
     return Scaffold(
         bottomNavigationBar:
-            AnimatedBottomBar(scrollController: _scrollController, size: size),
+            AnimatedContainer(scrollController: _scrollController, size: size),
         // _CustomBottomBar(size: size, scrollController: _scrollController),
         body: SafeArea(
             child: GestureDetector(
@@ -147,59 +147,117 @@ class _AppBar extends StatelessWidget {
   }
 }
 
-class AnimatedBottomBar extends StatelessWidget {
-  final ScrollController scrollController;
-  final Size size;
+// class AnimatedBottomBar extends StatelessWidget {
+//   final ScrollController scrollController;
+//   final Size size;
 
-  AnimatedBottomBar({
-    Key? key,
-    required this.size,
-    required this.scrollController,
-  }) : super(key: key);
+//   AnimatedBottomBar({
+//     Key? key,
+//     required this.size,
+//     required this.scrollController,
+//   }) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return AnimatedBuilder(
+//       animation: scrollController,
+//       builder: (context, child) {
+//         double previousValue = 0;
+//         double position = 0;
+
+//         if (scrollController.offset > previousValue &&
+//             scrollController.offset > 100) {
+//           position = 0;
+//         } else {
+//           position = 0.075;
+//         }
+//         previousValue = scrollController.offset;
+//         print('PREVIOUS VALUE $previousValue');
+//         print('OFFSET ${scrollController.offset}');
+
+//         return Container(
+//           padding: const EdgeInsets.only(left: 5, right: 5, top: 5),
+//           decoration: const BoxDecoration(
+//             // color: Colors.amberAccent,
+//             border: Border(top: BorderSide(color: Colors.grey)),
+//           ),
+//           height: size.height * position,
+//           child: const Row(
+//             mainAxisAlignment: MainAxisAlignment.spaceAround,
+//             children: [
+//               VerticalIcon(text: 'Home', icon: Icons.home),
+//               VerticalIcon(text: 'My Network', icon: Icons.people),
+//               VerticalIcon(text: 'Post', icon: Icons.add_box_rounded),
+//               VerticalIcon(text: 'Notifications', icon: Icons.notifications),
+//               VerticalIcon(text: 'Jobs', icon: Icons.work),
+//             ],
+//           ),
+//         );
+//       },
+//     );
+//   }
+// }
+
+class AnimatedContainer extends StatelessWidget {
+  final Size size;
+  final ScrollController scrollController;
+  const AnimatedContainer(
+      {super.key, required this.size, required this.scrollController});
 
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
+      //CHECK IN DIEGO´S CHANNEL THE METHODS WITH LERP AND CLAMP
+
+      //VALOR INITAL = 0
+      //(scrollController.offset > 100 ){
+      //initial position - scrollController.offset
+      //}else if (){
+      //}
+      // size.height * 0.07 - scrollController.ofsset      ,
       animation: scrollController,
       builder: (context, child) {
-        double previousValue = 0;
-        double position = 0;
-
-        if (scrollController.offset > previousValue &&
-            scrollController.offset > 100) {
-          position = 0;
-        } else {
-          position = 0.075;
-        }
-        previousValue = scrollController.offset;
-        print('PREVIOUS VALUE $previousValue');
-        print('OFFSET ${scrollController.offset}');
-
-        // double offset = scrollController.offset;
-        // double? interpolatedHeight =
-        //     lerpDouble(size.height * 0.07, 0, offset / 100);
-
-        // interpolatedHeight = interpolatedHeight!.clamp(size.height * 0.07, 0);
-
         return Container(
           padding: const EdgeInsets.only(left: 5, right: 5, top: 5),
           decoration: const BoxDecoration(
-            color: Colors.amberAccent,
+            // color: Colors.amberAccent,
             border: Border(top: BorderSide(color: Colors.grey)),
           ),
-          height: size.height * position,
-          child: const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              VerticalIcon(text: 'Home', icon: Icons.home),
-              VerticalIcon(text: 'My Network', icon: Icons.people),
-              VerticalIcon(text: 'Post', icon: Icons.add_box_rounded),
-              VerticalIcon(text: 'Notifications', icon: Icons.notifications),
-              VerticalIcon(text: 'Jobs', icon: Icons.work),
-            ],
+          height: size.height * 0.07,
+          child: const Flexible(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                VerticalIcon(text: 'Home', icon: Icons.home),
+                VerticalIcon(text: 'My Network', icon: Icons.people),
+                VerticalIcon(text: 'Post', icon: Icons.add_box_rounded),
+                VerticalIcon(text: 'Notifications', icon: Icons.notifications),
+                VerticalIcon(text: 'Jobs', icon: Icons.work),
+              ],
+            ),
           ),
         );
       },
+      // child: Container(
+      //   padding: const EdgeInsets.only(left: 5, right: 5, top: 5),
+      //   decoration: const BoxDecoration(
+      //     // color: Colors.amberAccent,
+      //     border: Border(top: BorderSide(color: Colors.grey)),
+      //   ),
+      //   height: size.height * 0.07,
+      //   child: const Flexible(
+      //     child: Row(
+      //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+      //       children: [
+      //         VerticalIcon(text: 'Home', icon: Icons.home),
+      //         VerticalIcon(text: 'My Network', icon: Icons.people),
+      //         VerticalIcon(text: 'Post', icon: Icons.add_box_rounded),
+      //         VerticalIcon(text: 'Notifications', icon: Icons.notifications),
+      //         VerticalIcon(text: 'Jobs', icon: Icons.work),
+      //       ],
+      //     ),
+      //   ),
+      // ),
     );
   }
 }
