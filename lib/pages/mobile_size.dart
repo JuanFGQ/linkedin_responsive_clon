@@ -32,7 +32,10 @@ class _MobileSizeState extends State<MobileSize> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-        bottomNavigationBar: _CustomBottomBar(size: size),
+        bottomNavigationBar: _CustomBottomBar(
+          size: size,
+          scrollController: _scrollController,
+        ),
         body: SafeArea(
             child: GestureDetector(
           onTap: () {
@@ -64,13 +67,14 @@ class _MobileSizeState extends State<MobileSize> {
 }
 
 class _CustomBottomBar extends StatelessWidget {
+  final ScrollController scrollController;
   final Size size;
-  const _CustomBottomBar({super.key, required this.size});
+  const _CustomBottomBar(
+      {super.key, required this.size, required this.scrollController});
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: Duration(milliseconds: 100),
+    return Container(
       padding: const EdgeInsets.only(left: 5, right: 5, top: 5),
       decoration: const BoxDecoration(
           border: Border(top: BorderSide(color: Colors.grey))),
