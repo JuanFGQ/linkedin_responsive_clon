@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:linkedin_responsive_clon/widgets/user_post.dart';
 import 'package:linkedin_responsive_clon/widgets/vertical_icon_reaction.dart';
 
@@ -33,9 +34,10 @@ class _MobileSizeState extends State<MobileSize> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-        bottomNavigationBar:
-            AnimatedContainer(scrollController: _scrollController, size: size),
-        // _CustomBottomBar(size: size, scrollController: _scrollController),
+        bottomNavigationBar: _CustomBottomBar(
+          size: size,
+          scrollController: _scrollController,
+        ),
         body: SafeArea(
             child: GestureDetector(
           onTap: () {
@@ -74,24 +76,42 @@ class _CustomBottomBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double previousValue = 0;
     print('OFFSET ${scrollController.offset}');
+    return AnimatedBuilder(
+      animation: scrollController,
+      builder: (context, child) {
+        double previousScroll = 0;
+        double maxExtent = size.height * 0.07;
+        double minExtent = size.height * 0;
+        double scrollOffset = scrollController.offset;
+        // lerpDouble(a, b, t)
 
-    return Container(
-      padding: const EdgeInsets.only(left: 5, right: 5, top: 5),
-      decoration: const BoxDecoration(
-          border: Border(top: BorderSide(color: Colors.grey))),
-      height: size.height * 0.07,
-      child: const Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          VerticalIcon(text: 'Home', icon: Icons.home),
-          VerticalIcon(text: 'My Network', icon: Icons.people),
-          VerticalIcon(text: 'Post', icon: Icons.add_box_rounded),
-          VerticalIcon(text: 'Notifications', icon: Icons.notifications),
-          VerticalIcon(text: 'Jobs', icon: Icons.work),
-        ],
-      ),
+        // double interpolateHeight = scrollOffset > 500
+        //     ? lerpDouble(maxExtent, minExtent, (scrollOffset - 100) / 100) ??
+        //         minExtent
+        //     : minExtent;
+
+        // double clampledOffset = interpolateHeight.clamp(minExtent, maxExtent);
+
+        // if (scrollController.offset > previousScroll) {}
+
+        return Container(
+          padding: const EdgeInsets.only(left: 5, right: 5, top: 5),
+          decoration: const BoxDecoration(
+              border: Border(top: BorderSide(color: Colors.grey))),
+          height: clampledOffset,
+          child: const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              VerticalIcon(text: 'Home', icon: Icons.home),
+              VerticalIcon(text: 'My Network', icon: Icons.people),
+              VerticalIcon(text: 'Post', icon: Icons.add_box_rounded),
+              VerticalIcon(text: 'Notifications', icon: Icons.notifications),
+              VerticalIcon(text: 'Jobs', icon: Icons.work),
+            ],
+          ),
+        );
+      },
     );
   }
 }
@@ -147,117 +167,62 @@ class _AppBar extends StatelessWidget {
   }
 }
 
-// class AnimatedBottomBar extends StatelessWidget {
-//   final ScrollController scrollController;
-//   final Size size;
 
-//   AnimatedBottomBar({
-//     Key? key,
-//     required this.size,
-//     required this.scrollController,
-//   }) : super(key: key);
+
+
+// class _ExpandableBottomSheet extends StatefulWidget {
+//   final Size size;
+//   const _ExpandableBottomSheet({super.key, required this.size});
 
 //   @override
+//   State<_ExpandableBottomSheet> createState() => __ExpandableBottomSheetState();
+// }
+
+// class __ExpandableBottomSheetState extends State<_ExpandableBottomSheet> {
+//   double opacity = 0.0;
+//   double _position = 0.0;
+
+//   bool isExpanded = false;
+//   @override
 //   Widget build(BuildContext context) {
-//     return AnimatedBuilder(
-//       animation: scrollController,
-//       builder: (context, child) {
-//         double previousValue = 0;
-//         double position = 0;
-
-//         if (scrollController.offset > previousValue &&
-//             scrollController.offset > 100) {
-//           position = 0;
-//         } else {
-//           position = 0.075;
-//         }
-//         previousValue = scrollController.offset;
-//         print('PREVIOUS VALUE $previousValue');
-//         print('OFFSET ${scrollController.offset}');
-
-//         return Container(
-//           padding: const EdgeInsets.only(left: 5, right: 5, top: 5),
-//           decoration: const BoxDecoration(
-//             // color: Colors.amberAccent,
-//             border: Border(top: BorderSide(color: Colors.grey)),
-//           ),
-//           height: size.height * position,
-//           child: const Row(
-//             mainAxisAlignment: MainAxisAlignment.spaceAround,
-//             children: [
-//               VerticalIcon(text: 'Home', icon: Icons.home),
-//               VerticalIcon(text: 'My Network', icon: Icons.people),
-//               VerticalIcon(text: 'Post', icon: Icons.add_box_rounded),
-//               VerticalIcon(text: 'Notifications', icon: Icons.notifications),
-//               VerticalIcon(text: 'Jobs', icon: Icons.work),
-//             ],
-//           ),
-//         );
+//     return NotificationListener<DraggableScrollableNotification>(
+//       onNotification: (notification) {
+//         setState(() {
+//           _position = notification.extent;
+//         });
+//         return true;
 //       },
+//       child: DraggableScrollableSheet(
+//         expand: isExpanded,
+//         initialChildSize: 0.08,
+//         maxChildSize: 1.0,
+//         minChildSize: 0.08,
+//         builder: (context, scrollController) {
+//           return Container(
+//             decoration: BoxDecoration(
+//               borderRadius: BorderRadius.only(
+//                   topLeft: Radius.circular(_position > 0.59 ? 0 : 35),
+//                   topRight: Radius.circular(_position > 0.59 ? 0 : 35)),
+//               color: const Color(0xff1b303e),
+//             ),
+//             child: SingleChildScrollView(
+//               controller: scrollController,
+//               child: Column(
+//                 children: [
+//                   Opacity(
+//                       opacity: (_position == 1.0
+//                           ? 0.0
+//                           : 1.0 - (_position - 0.28).clamp(0.0, 1.0)),
+//                       child: const _MinExtentWidget()),
+//                   Opacity(
+//                       opacity: (_position - 0.091).clamp(0.0, 1.0),
+//                       child: const _MaxExtentWidget())
+//                 ],
+//               ),
+//             ),
+//           );
+//         },
+//       ),
 //     );
 //   }
 // }
-
-class AnimatedContainer extends StatelessWidget {
-  final Size size;
-  final ScrollController scrollController;
-  const AnimatedContainer(
-      {super.key, required this.size, required this.scrollController});
-
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      //CHECK IN DIEGO´S CHANNEL THE METHODS WITH LERP AND CLAMP
-
-      //VALOR INITAL = 0
-      //(scrollController.offset > 100 ){
-      //initial position - scrollController.offset
-      //}else if (){
-      //}
-      // size.height * 0.07 - scrollController.ofsset      ,
-      animation: scrollController,
-      builder: (context, child) {
-        return Container(
-          padding: const EdgeInsets.only(left: 5, right: 5, top: 5),
-          decoration: const BoxDecoration(
-            // color: Colors.amberAccent,
-            border: Border(top: BorderSide(color: Colors.grey)),
-          ),
-          height: size.height * 0.07,
-          child: const Flexible(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                VerticalIcon(text: 'Home', icon: Icons.home),
-                VerticalIcon(text: 'My Network', icon: Icons.people),
-                VerticalIcon(text: 'Post', icon: Icons.add_box_rounded),
-                VerticalIcon(text: 'Notifications', icon: Icons.notifications),
-                VerticalIcon(text: 'Jobs', icon: Icons.work),
-              ],
-            ),
-          ),
-        );
-      },
-      // child: Container(
-      //   padding: const EdgeInsets.only(left: 5, right: 5, top: 5),
-      //   decoration: const BoxDecoration(
-      //     // color: Colors.amberAccent,
-      //     border: Border(top: BorderSide(color: Colors.grey)),
-      //   ),
-      //   height: size.height * 0.07,
-      //   child: const Flexible(
-      //     child: Row(
-      //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-      //       children: [
-      //         VerticalIcon(text: 'Home', icon: Icons.home),
-      //         VerticalIcon(text: 'My Network', icon: Icons.people),
-      //         VerticalIcon(text: 'Post', icon: Icons.add_box_rounded),
-      //         VerticalIcon(text: 'Notifications', icon: Icons.notifications),
-      //         VerticalIcon(text: 'Jobs', icon: Icons.work),
-      //       ],
-      //     ),
-      //   ),
-      // ),
-    );
-  }
-}
