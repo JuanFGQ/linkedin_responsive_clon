@@ -7,12 +7,15 @@ class VerticalIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Icon(icon, color: const Color(0xff5e5e5e)),
-        // const SizedBox(height: 10),
-        Text(text, style: const TextStyle(color: Color(0xff5e5e5e)))
-      ],
+    return FittedBox(
+      fit: BoxFit.fitHeight,
+      child: Column(
+        children: [
+          Icon(icon, color: const Color(0xff5e5e5e)),
+          // const SizedBox(height: 10),
+          Text(text, style: const TextStyle(color: Color(0xff5e5e5e)))
+        ],
+      ),
     );
   }
 }

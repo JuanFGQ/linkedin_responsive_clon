@@ -68,54 +68,53 @@ class _MobileSizeState extends State<MobileSize> {
   }
 }
 
-class _CustomBottomBar extends StatelessWidget {
+class _CustomBottomBar extends StatefulWidget {
   final ScrollController scrollController;
   final Size size;
   const _CustomBottomBar(
       {super.key, required this.size, required this.scrollController});
 
   @override
+  State<_CustomBottomBar> createState() => _CustomBottomBarState();
+}
+
+class _CustomBottomBarState extends State<_CustomBottomBar> {
+  double previousScroll = 0;
+
+  @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: scrollController,
-      builder: (context, child) {
-        double previousScroll = 0;
+    double scrollOffset = widget.scrollController.offset;
 
-        double scrollOffset = scrollController.offset;
+    bool flag = true;
 
-        bool flag = true;
+    if (scrollOffset > previousScroll && scrollOffset > 150) {
+      flag = false;
+    } else {
+      flag = true;
+    }
 
-        if (scrollOffset > previousScroll && scrollOffset > 150) {
-          flag = false;
-        } else {
-          flag = true;
-        }
-        print('ACTUAL SCROLL ${scrollController.offset}');
+    previousScroll = scrollOffset;
 
-        previousScroll = scrollOffset;
-        print('PREVIOUS SCROLL $previousScroll');
-        print('$flag');
-
-        return AnimatedContainer(
-          duration: Duration(milliseconds: 180),
-          curve: Curves.easeIn,
-          padding: const EdgeInsets.only(left: 5, right: 5, top: 5),
-          decoration: const BoxDecoration(
-              border: Border(top: BorderSide(color: Colors.grey))),
-          height: flag ? 55 : 0,
-          child: const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              VerticalIcon(text: 'Home', icon: Icons.home),
-              VerticalIcon(text: 'My Network', icon: Icons.people),
-              VerticalIcon(text: 'Post', icon: Icons.add_box_rounded),
-              VerticalIcon(text: 'Notifications', icon: Icons.notifications),
-              VerticalIcon(text: 'Jobs', icon: Icons.work),
-            ],
-          ),
-        );
-      },
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 180),
+      curve: Curves.easeIn,
+      padding: const EdgeInsets.only(left: 5, right: 5, top: 5),
+      decoration: const BoxDecoration(
+          border: Border(top: BorderSide(color: Colors.grey))),
+      height: flag ? 55 : 0,
+      child: const Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          VerticalIcon(text: 'Home', icon: Icons.home),
+          VerticalIcon(text: 'My Network', icon: Icons.people),
+          VerticalIcon(text: 'Post', icon: Icons.add_box_rounded),
+          VerticalIcon(text: 'Notifications', icon: Icons.notifications),
+          VerticalIcon(text: 'Jobs', icon: Icons.work),
+        ],
+      ),
     );
+    // },
+    // );
   }
 }
 
@@ -169,63 +168,3 @@ class _AppBar extends StatelessWidget {
     );
   }
 }
-
-
-
-
-// class _ExpandableBottomSheet extends StatefulWidget {
-//   final Size size;
-//   const _ExpandableBottomSheet({super.key, required this.size});
-
-//   @override
-//   State<_ExpandableBottomSheet> createState() => __ExpandableBottomSheetState();
-// }
-
-// class __ExpandableBottomSheetState extends State<_ExpandableBottomSheet> {
-//   double opacity = 0.0;
-//   double _position = 0.0;
-
-//   bool isExpanded = false;
-//   @override
-//   Widget build(BuildContext context) {
-//     return NotificationListener<DraggableScrollableNotification>(
-//       onNotification: (notification) {
-//         setState(() {
-//           _position = notification.extent;
-//         });
-//         return true;
-//       },
-//       child: DraggableScrollableSheet(
-//         expand: isExpanded,
-//         initialChildSize: 0.08,
-//         maxChildSize: 1.0,
-//         minChildSize: 0.08,
-//         builder: (context, scrollController) {
-//           return Container(
-//             decoration: BoxDecoration(
-//               borderRadius: BorderRadius.only(
-//                   topLeft: Radius.circular(_position > 0.59 ? 0 : 35),
-//                   topRight: Radius.circular(_position > 0.59 ? 0 : 35)),
-//               color: const Color(0xff1b303e),
-//             ),
-//             child: SingleChildScrollView(
-//               controller: scrollController,
-//               child: Column(
-//                 children: [
-//                   Opacity(
-//                       opacity: (_position == 1.0
-//                           ? 0.0
-//                           : 1.0 - (_position - 0.28).clamp(0.0, 1.0)),
-//                       child: const _MinExtentWidget()),
-//                   Opacity(
-//                       opacity: (_position - 0.091).clamp(0.0, 1.0),
-//                       child: const _MaxExtentWidget())
-//                 ],
-//               ),
-//             ),
-//           );
-//         },
-//       ),
-//     );
-//   }
-// }
