@@ -6,10 +6,10 @@ import 'package:linkedin_responsive_clon/widgets/user_create_post.dart';
 import 'package:linkedin_responsive_clon/widgets/user_post.dart';
 
 import '../widgets/app_bar_icons.dart';
-import '../widgets/show_more.dart';
+import '../widgets/mostrar_mas.dart';
 
-class MobilePage extends StatelessWidget {
-  const MobilePage({super.key});
+class SmallPage extends StatelessWidget {
+  const SmallPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +29,8 @@ class MobilePage extends StatelessWidget {
                       icon: Icons.search, text: 'Buscar', onPressed: () {}),
                 ),
                 const UserProfile(),
-                // const MostrarMas(),
-                // const UserCreatePost(),
+                const MostrarMas(),
+                const UserCreatePost(),
                 const SizedBox(height: 20),
                 const UserPost(),
                 const SizedBox(height: 20),

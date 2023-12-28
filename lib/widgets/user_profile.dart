@@ -7,6 +7,8 @@ class UserProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final sizeM = MediaQuery.of(context).size;
+    final userProfileWidth =
+        sizeM.width > 1120 ? sizeM.width * 0.21 : double.infinity;
 
     return LayoutBuilder(builder: (context, constraints) {
       final size = constraints.maxWidth;
@@ -17,7 +19,7 @@ class UserProfile extends StatelessWidget {
             bottom: 15,
             left: dynamicMargin(size),
             right: dynamicMargin(size)),
-        width: double.infinity,
+        width: userProfileWidth,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(sizeM.width < 600 ? 0 : 15),
             border: Border.all(width: 1, color: borderColor)),

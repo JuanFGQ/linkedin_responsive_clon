@@ -3,7 +3,7 @@ import 'package:linkedin_responsive_clon/widgets/app_bar.dart';
 import 'package:linkedin_responsive_clon/costants/constants.dart';
 import 'package:linkedin_responsive_clon/widgets/user_profile.dart';
 
-import '../widgets/show_more.dart';
+import '../widgets/mostrar_mas.dart';
 import '../widgets/user_create_post.dart';
 import '../widgets/user_post.dart';
 

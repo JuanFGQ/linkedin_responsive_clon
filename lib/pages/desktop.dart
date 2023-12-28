@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:linkedin_responsive_clon/widgets/app_bar.dart';
 import 'package:linkedin_responsive_clon/costants/constants.dart';
+import 'package:linkedin_responsive_clon/widgets/linked_in_news.dart';
 import 'package:linkedin_responsive_clon/widgets/news_colum.dart';
 import 'package:linkedin_responsive_clon/widgets/user_profile.dart';
 import 'package:linkedin_responsive_clon/widgets/user_create_post.dart';
@@ -13,6 +14,7 @@ class DesktopPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final margin = size.width > 1093.0 ? 15.0 : 95.0;
     return Scaffold(
       backgroundColor: scaffoldBackgroundColor,
       body: SingleChildScrollView(
@@ -23,13 +25,17 @@ class DesktopPage extends StatelessWidget {
               searchItem: searchTextField,
             ),
             Container(
-                margin: const EdgeInsets.only(top: 30, left: 95, right: 95),
+                margin: EdgeInsets.only(top: 30, left: margin, right: margin),
                 child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       FirstColum(size: size),
-                      const SizedBox(width: 30),
+                      const SizedBox(width: 12),
                       SecondColum(size: size),
+                      const SizedBox(width: 20),
+                      Visibility(
+                          visible: size.width > 1093 ? true : false,
+                          child: ThirdColum(size: size))
                     ]))
           ],
         ),
@@ -64,22 +70,20 @@ class SecondColum extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        // color: Colors.red,
-        child: const Column(
-          children: [
-            UserCreatePost(),
-            SizedBox(height: 50),
-            UserPost(),
-          ],
-        ),
+    return const Expanded(
+      child: Column(
+        children: [
+          UserCreatePost(),
+          SizedBox(height: 50),
+          UserPost(),
+        ],
       ),
     );
   }
 }
 
 class ThirdColum extends StatelessWidget {
+  //1094
   final Size size;
 
   const ThirdColum({super.key, required this.size});
@@ -87,8 +91,9 @@ class ThirdColum extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(top: 15, right: 25),
       child: const Column(
-        children: [Placeholder()],
+        children: [LinkedInNews()],
       ),
     );
   }

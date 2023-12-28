@@ -6,8 +6,9 @@ class UserRecentlyViewed extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Container(
-      width: double.infinity,
+      width: size.width * 0.21,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           color: Colors.white,
