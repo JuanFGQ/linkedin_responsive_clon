@@ -76,30 +76,33 @@ class _CustomBottomBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('OFFSET ${scrollController.offset}');
     return AnimatedBuilder(
       animation: scrollController,
       builder: (context, child) {
         double previousScroll = 0;
-        double maxExtent = size.height * 0.07;
-        double minExtent = size.height * 0;
+
         double scrollOffset = scrollController.offset;
-        // lerpDouble(a, b, t)
 
-        // double interpolateHeight = scrollOffset > 500
-        //     ? lerpDouble(maxExtent, minExtent, (scrollOffset - 100) / 100) ??
-        //         minExtent
-        //     : minExtent;
+        bool flag = true;
 
-        // double clampledOffset = interpolateHeight.clamp(minExtent, maxExtent);
+        if (scrollOffset > previousScroll && scrollOffset > 150) {
+          flag = false;
+        } else {
+          flag = true;
+        }
+        print('ACTUAL SCROLL ${scrollController.offset}');
 
-        // if (scrollController.offset > previousScroll) {}
+        previousScroll = scrollOffset;
+        print('PREVIOUS SCROLL $previousScroll');
+        print('$flag');
 
-        return Container(
+        return AnimatedContainer(
+          duration: Duration(milliseconds: 180),
+          curve: Curves.easeIn,
           padding: const EdgeInsets.only(left: 5, right: 5, top: 5),
           decoration: const BoxDecoration(
               border: Border(top: BorderSide(color: Colors.grey))),
-          height: clampledOffset,
+          height: flag ? 55 : 0,
           child: const Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
