@@ -18,6 +18,7 @@ class UserPost extends StatelessWidget {
         margin: EdgeInsets.only(
             top: 15, left: dynamicMargin(size), right: dynamicMargin(size)),
         decoration: BoxDecoration(
+            color: widgetsColor,
             borderRadius: BorderRadius.circular(sizeM.width < 600 ? 0 : 15),
             border: Border.all(width: 1, color: borderColor)),
         child: Column(

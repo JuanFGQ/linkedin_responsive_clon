@@ -14,20 +14,17 @@ class AppBarIcons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size.width;
-    return Align(
-      alignment: Alignment.center,
+    final margin = size < 600 ? 5.0 : 10.0;
+    return Container(
+      margin: EdgeInsets.only(left: margin, right: margin),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           IconButton(
               onPressed: onPressed,
-              icon: Icon(
-                icon,
-                color: const Color(0xff666666),
-                size: 30,
-              )),
+              icon: Icon(icon, color: const Color(0xff666666))),
           Visibility(
-            visible: size < 670 ? false : true,
+            visible: size > 936 ? true : false,
             child: Text(
               text,
               overflow: TextOverflow.ellipsis,

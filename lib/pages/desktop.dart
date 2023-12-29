@@ -8,6 +8,8 @@ import 'package:linkedin_responsive_clon/widgets/user_create_post.dart';
 import 'package:linkedin_responsive_clon/widgets/user_post.dart';
 import 'package:linkedin_responsive_clon/widgets/user_recently_viewed.dart';
 
+import '../widgets/premium_box.dart';
+
 class DesktopPage extends StatelessWidget {
   const DesktopPage({super.key});
 
@@ -16,26 +18,32 @@ class DesktopPage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final margin = size.width > 1093.0 ? 15.0 : 95.0;
     return Scaffold(
+      appBar: const PreferredSize(
+          preferredSize: Size.fromHeight(65.0),
+          child: AppBarWidget(
+            menuItem: BussinesIcon(),
+            searchItem: CustomTextField(),
+          )),
       backgroundColor: scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
-            AppBarWidget(
-              menuItem: menuIcon,
-              searchItem: searchTextField,
-            ),
+            // const AppBarWidget(
+            //   menuItem: BussinesIcon(),
+            //   searchItem: CustomTextField(),
+            // ),
             Container(
                 margin: EdgeInsets.only(top: 30, left: margin, right: margin),
                 child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      SizedBox(width: size.width > 1340 ? 130 : 15),
                       FirstColum(size: size),
-                      const SizedBox(width: 12),
+                      const SizedBox(width: 25),
                       SecondColum(size: size),
-                      const SizedBox(width: 20),
-                      Visibility(
-                          visible: size.width > 1093 ? true : false,
-                          child: ThirdColum(size: size))
+                      const SizedBox(width: 25),
+                      ThirdColum(size: size),
+                      SizedBox(width: size.width > 1340 ? 120 : 0),
                     ]))
           ],
         ),
@@ -55,7 +63,7 @@ class FirstColum extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(top: 12),
-      width: size.width * 0.24,
+      width: size.width * 0.16,
       child: const Column(
         children: [UserProfile(), UserRecentlyViewed()],
       ),
@@ -70,12 +78,25 @@ class SecondColum extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Expanded(
+    return Expanded(
       child: Column(
         children: [
-          UserCreatePost(),
-          SizedBox(height: 50),
-          UserPost(),
+          const UserCreatePost(),
+          const SizedBox(height: 15),
+          Row(
+            children: [
+              Expanded(
+                child: Container(height: 1, color: Colors.grey),
+              ),
+              const SizedBox(width: 15),
+              const Text('Seleccionar vista del feed:',
+                  style: TextStyle(color: Colors.grey)),
+              const Text(' Primero lo mas relevante ',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+              const Icon(Icons.arrow_drop_down)
+            ],
+          ),
+          const UserPost(),
         ],
       ),
     );
@@ -90,10 +111,17 @@ class ThirdColum extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(top: 15, right: 25),
-      child: const Column(
-        children: [LinkedInNews()],
+    return Visibility(
+      visible: size.width > 1093 ? true : false,
+      child: Container(
+        margin: const EdgeInsets.only(top: 15, right: 25),
+        child: const Column(
+          children: [
+            LinkedInNews(),
+            SizedBox(height: 15),
+            PremiumBox(),
+          ],
+        ),
       ),
     );
   }

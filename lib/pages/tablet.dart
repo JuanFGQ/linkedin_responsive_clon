@@ -10,22 +10,24 @@ import '../widgets/user_post.dart';
 class TabletPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
+        appBar: PreferredSize(
+            preferredSize: Size.fromHeight(65),
+            child: AppBarWidget(
+              menuItem: BussinesIcon(),
+              searchItem: CustomTextField(),
+            )),
         backgroundColor: scaffoldBackgroundColor,
         body: SingleChildScrollView(
           child: Column(
             children: [
-              AppBarWidget(
-                menuItem: menuIcon,
-                searchItem: searchTextField,
-              ),
-              const UserProfile(),
-              const MostrarMas(),
-              const UserCreatePost(),
-              const SizedBox(height: 20),
-              const UserPost(),
-              const SizedBox(height: 20),
-              const UserPost(),
+              UserProfile(),
+              MostrarMas(),
+              UserCreatePost(),
+              SizedBox(height: 20),
+              UserPost(),
+              SizedBox(height: 20),
+              UserPost(),
             ],
           ),
         ));

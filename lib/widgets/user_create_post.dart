@@ -13,9 +13,8 @@ class UserCreatePost extends StatelessWidget {
       return Container(
           margin: EdgeInsets.only(
               top: 15, left: dynamicMargin(size), right: dynamicMargin(size)),
-          // width: double.infinity,
-          // height: sizeM.height * 0.16,
           decoration: BoxDecoration(
+              color: widgetsColor,
               borderRadius: BorderRadius.circular(sizeM.width < 600 ? 0 : 15),
               border: Border.all(width: 1, color: borderColor)),
           child: Column(
@@ -36,25 +35,28 @@ class _PostOptions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        _PostOption(
-          text: 'Contenido multimedia',
-          icon: Icons.photo_size_select_actual_rounded,
-          color: Color(0xff358be3),
-        ),
-        _PostOption(
-          text: 'Evento',
-          icon: Icons.calendar_month,
-          color: Color(0xffc27b12),
-        ),
-        _PostOption(
-          text: 'Escribir articulo',
-          icon: Icons.article_outlined,
-          color: Color(0xffe06847),
-        ),
-      ],
+    return const Padding(
+      padding: EdgeInsets.only(bottom: 15),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          _PostOption(
+            text: 'Contenido multimedia',
+            icon: Icons.photo_size_select_actual_rounded,
+            color: Color(0xff358be3),
+          ),
+          _PostOption(
+            text: 'Evento',
+            icon: Icons.calendar_month,
+            color: Color(0xffc27b12),
+          ),
+          _PostOption(
+            text: 'Escribir articulo',
+            icon: Icons.article_outlined,
+            color: Color(0xffe06847),
+          ),
+        ],
+      ),
     );
   }
 }

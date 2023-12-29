@@ -18,16 +18,18 @@ class SmallPage extends StatelessWidget {
     print('MOBILE HEIGHT ${size.height}');
 
     return Scaffold(
+        appBar: PreferredSize(
+            preferredSize: Size.fromHeight(65),
+            child: AppBarWidget(
+              menuItem: menuMobileSizeIcon,
+              searchItem: AppBarIcons(
+                  icon: Icons.search, text: 'Buscar', onPressed: () {}),
+            )),
         backgroundColor: scaffoldBackgroundColor,
         body: SafeArea(
           child: SingleChildScrollView(
             child: Column(
               children: [
-                AppBarWidget(
-                  menuItem: menuMobileSizeIcon,
-                  searchItem: AppBarIcons(
-                      icon: Icons.search, text: 'Buscar', onPressed: () {}),
-                ),
                 const UserProfile(),
                 const MostrarMas(),
                 const UserCreatePost(),
@@ -37,7 +39,6 @@ class SmallPage extends StatelessWidget {
 
                 const UserPost(),
 //
-                // SizedBox(height: 200)
               ],
             ),
           ),

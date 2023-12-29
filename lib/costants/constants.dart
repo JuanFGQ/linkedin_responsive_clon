@@ -9,31 +9,7 @@ const iconsColor = Color(0xff3b3b3b);
 
 const textColor = Color(0xff939393);
 
-var menuIcon = Column(
-  children: [
-    Container(
-      // height: 20,
-      child: IconButton(onPressed: () {}, icon: Image.asset('assets/menu.png')),
-    ),
-    const Row(
-      children: [Text('Para negocios'), Icon(Icons.arrow_drop_down_outlined)],
-    )
-  ],
-);
-
-var searchTextField = Expanded(
-  child: TextFormField(
-      onChanged: (value) {},
-      decoration: const InputDecoration(
-          iconColor: Colors.black,
-          prefixIconColor: Colors.black,
-          border: InputBorder.none,
-          // utlineInputBorder(
-          //     borderSide: BorderSide(color: Colors.yellow, width: 2.0)),
-          labelText: 'Buscar',
-          suffixIconColor: Colors.black,
-          prefixIcon: Icon(Icons.search))),
-);
+const widgetsColor = Colors.white;
 
 var menuMobileSizeIcon = const Padding(
   padding: EdgeInsets.all(8.0),
@@ -62,5 +38,60 @@ double dynamicMargin(double screenWidth) {
     return 0;
   } else {
     return 0;
+  }
+}
+
+class BussinesIcon extends StatelessWidget {
+  const BussinesIcon({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size.width;
+    return Column(
+      children: [
+        Visibility(
+            visible: size > 578 ? true : false,
+            child: IconButton(
+                onPressed: () {}, icon: Image.asset('assets/menu.png'))),
+        Row(
+          children: [
+            Visibility(
+                visible: size > 936 ? true : false,
+                child: const Text('Para negocios')),
+            const Icon(Icons.arrow_drop_down_outlined)
+          ],
+        )
+      ],
+    );
+  }
+}
+
+class CustomTextField extends StatelessWidget {
+  const CustomTextField({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size.width;
+
+    return Expanded(
+      child: Container(
+        margin: EdgeInsets.only(right: size > 1340 ? 75 : 0),
+        child: const TextField(
+          decoration: InputDecoration(
+            // fillColor: Color.fromARGB(255, 224, 223, 223),
+            filled: true,
+            focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.transparent)),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.transparent),
+            ),
+            contentPadding: EdgeInsets.symmetric(vertical: 2),
+            prefixIcon: Icon(Icons.search),
+            hintText: 'Buscar',
+            hintStyle: TextStyle(fontSize: 17.0),
+          ),
+        ),
+      ),
+    );
   }
 }

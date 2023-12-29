@@ -10,15 +10,12 @@ class LinkedInNews extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Container(
       padding: const EdgeInsets.all(15),
-      width: size.width * 0.29,
-      // height:double,
+      width: size.width * 0.21,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           color: Colors.white,
           border: Border.all(width: 1, color: borderColor)),
       child: const Column(
-        // crossAxisAlignment: CrossAxisAlignment.start,
-        // mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Row(
             children: [
@@ -60,10 +57,12 @@ class _News extends StatelessWidget {
           children: [
             const Icon(Icons.circle, size: 10),
             SizedBox(width: 13),
-            Text(news,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                    fontWeight: FontWeight.bold, color: Colors.black)),
+            Expanded(
+              child: Text(news,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.black)),
+            ),
           ],
         ),
         Padding(
