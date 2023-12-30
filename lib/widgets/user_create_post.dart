@@ -19,7 +19,7 @@ class UserCreatePost extends StatelessWidget {
               border: Border.all(width: 1, color: borderColor)),
           child: Column(
             children: [
-              _createPost(size: sizeM),
+              _CreatePost(size: sizeM),
               const SizedBox(height: 10),
               const _PostOptions(),
             ],
@@ -29,9 +29,7 @@ class UserCreatePost extends StatelessWidget {
 }
 
 class _PostOptions extends StatelessWidget {
-  const _PostOptions({
-    super.key,
-  });
+  const _PostOptions();
 
   @override
   Widget build(BuildContext context) {
@@ -61,9 +59,8 @@ class _PostOptions extends StatelessWidget {
   }
 }
 
-class _createPost extends StatelessWidget {
-  const _createPost({
-    super.key,
+class _CreatePost extends StatelessWidget {
+  const _CreatePost({
     required this.size,
   });
 
@@ -76,7 +73,10 @@ class _createPost extends StatelessWidget {
       child: Row(
         children: [
           const CircleAvatar(
-              radius: 25, backgroundImage: AssetImage('assets/profile.png')),
+            radius: 25,
+            backgroundImage: AssetImage('assets/mylogo.png'),
+            backgroundColor: Colors.grey,
+          ),
           const SizedBox(width: 10),
           Expanded(
             child: Container(
@@ -111,7 +111,7 @@ class _PostOption extends StatelessWidget {
   final Color color;
 
   const _PostOption(
-      {super.key, required this.text, required this.icon, required this.color});
+      {required this.text, required this.icon, required this.color});
   @override
   Widget build(BuildContext context) {
     return Row(

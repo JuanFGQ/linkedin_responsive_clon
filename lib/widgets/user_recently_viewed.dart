@@ -65,7 +65,7 @@ class UserRecentlyViewed extends StatelessWidget {
 
 class _RecentlyViewItem extends StatelessWidget {
   final String text;
-  const _RecentlyViewItem({super.key, required this.text});
+  const _RecentlyViewItem({required this.text});
 
   @override
   Widget build(BuildContext context) {

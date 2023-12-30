@@ -35,7 +35,7 @@ class LinkedInNews extends StatelessWidget {
               news: 'Disfruta de las fiestas en igualdad', date: 'hace 2 dias'),
           _News(news: 'La cantidad mas sana de alcohol', date: 'hace 6 dias '),
           _News(news: 'El amor no es para el trabajo', date: 'hace 12 horas'),
-          MostrarMas()
+          ShowMore()
         ],
       ),
     );
@@ -46,7 +46,7 @@ class _News extends StatelessWidget {
   final String news;
   final String date;
 
-  const _News({super.key, required this.news, required this.date});
+  const _News({required this.news, required this.date});
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +56,7 @@ class _News extends StatelessWidget {
         Row(
           children: [
             const Icon(Icons.circle, size: 10),
-            SizedBox(width: 13),
+            const SizedBox(width: 13),
             Expanded(
               child: Text(news,
                   overflow: TextOverflow.ellipsis,
@@ -70,7 +70,7 @@ class _News extends StatelessWidget {
           child: Text(date,
               style: const TextStyle(fontSize: 14, color: textColor)),
         ),
-        SizedBox(height: 20)
+        const SizedBox(height: 20)
       ],
     );
   }

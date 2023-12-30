@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:linkedin_responsive_clon/pages/mobile_size.dart';
 import 'package:linkedin_responsive_clon/pages/responsive_layout.dart';
 
 void main() => runApp(const MyApp());

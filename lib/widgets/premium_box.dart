@@ -36,9 +36,7 @@ class PremiumBox extends StatelessWidget {
 }
 
 class _DiscountButton extends StatelessWidget {
-  const _DiscountButton({
-    super.key,
-  });
+  const _DiscountButton();
 
   @override
   Widget build(BuildContext context) {
@@ -61,9 +59,7 @@ class _DiscountButton extends StatelessWidget {
 }
 
 class _PremiumProfilePics extends StatelessWidget {
-  const _PremiumProfilePics({
-    super.key,
-  });
+  const _PremiumProfilePics();
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +68,8 @@ class _PremiumProfilePics extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 38,
-          backgroundImage: AssetImage('assets/profile.png'),
+          backgroundColor: Colors.grey,
+          // backgroundImage: AssetImage('assets/profile.png'),
         ),
         SizedBox(width: 20),
         SizedBox(
@@ -86,9 +83,7 @@ class _PremiumProfilePics extends StatelessWidget {
 }
 
 class _HeaderText extends StatelessWidget {
-  const _HeaderText({
-    super.key,
-  });
+  const _HeaderText();
 
   @override
   Widget build(BuildContext context) {
@@ -103,9 +98,7 @@ class _HeaderText extends StatelessWidget {
 }
 
 class _HeaderIcons extends StatelessWidget {
-  const _HeaderIcons({
-    super.key,
-  });
+  const _HeaderIcons();
 
   @override
   Widget build(BuildContext context) {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:linkedin_responsive_clon/widgets/app_bar.dart';
 import 'package:linkedin_responsive_clon/costants/constants.dart';
 import 'package:linkedin_responsive_clon/widgets/linked_in_news.dart';
-import 'package:linkedin_responsive_clon/widgets/news_colum.dart';
+import 'package:linkedin_responsive_clon/widgets/screen_size.dart';
 import 'package:linkedin_responsive_clon/widgets/user_profile.dart';
 import 'package:linkedin_responsive_clon/widgets/user_create_post.dart';
 import 'package:linkedin_responsive_clon/widgets/user_post.dart';
@@ -28,10 +28,7 @@ class DesktopPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // const AppBarWidget(
-            //   menuItem: BussinesIcon(),
-            //   searchItem: CustomTextField(),
-            // ),
+            // ScreenSize(text: 'DESKTOP ${size.width.toInt()}'),
             Container(
                 margin: EdgeInsets.only(top: 30, left: margin, right: margin),
                 child: Row(

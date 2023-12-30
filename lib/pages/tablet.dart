@@ -4,13 +4,18 @@ import 'package:linkedin_responsive_clon/costants/constants.dart';
 import 'package:linkedin_responsive_clon/widgets/user_profile.dart';
 
 import '../widgets/mostrar_mas.dart';
+import '../widgets/screen_size.dart';
 import '../widgets/user_create_post.dart';
 import '../widgets/user_post.dart';
 
 class TabletPage extends StatelessWidget {
+  const TabletPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    final size = MediaQuery.of(context).size.width;
+
+    return Scaffold(
         appBar: PreferredSize(
             preferredSize: Size.fromHeight(65),
             child: AppBarWidget(
@@ -21,8 +26,9 @@ class TabletPage extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
+              // ScreenSize(text: 'TABLET ${size.toInt()}'),
               UserProfile(),
-              MostrarMas(),
+              ShowMore(),
               UserCreatePost(),
               SizedBox(height: 20),
               UserPost(),

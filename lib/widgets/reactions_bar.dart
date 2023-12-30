@@ -35,8 +35,7 @@ class ReactionBar extends StatelessWidget {
 class _ReactionIcon extends StatelessWidget {
   final IconData icon;
   final Color backGroundColor;
-  const _ReactionIcon(
-      {super.key, required this.icon, required this.backGroundColor});
+  const _ReactionIcon({required this.icon, required this.backGroundColor});
 
   @override
   Widget build(BuildContext context) {

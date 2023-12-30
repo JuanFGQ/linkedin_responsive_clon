@@ -16,10 +16,11 @@ class UserProfile extends StatelessWidget {
 
       return Container(
         margin: EdgeInsets.only(
-            top: 3,
-            bottom: 15,
-            left: dynamicMargin(size),
-            right: dynamicMargin(size)),
+          top: 3,
+          bottom: 15,
+          left: dynamicMargin(size),
+          right: dynamicMargin(size),
+        ),
         width: userProfileWidth,
         decoration: BoxDecoration(
             color: widgetsColor,
@@ -48,9 +49,7 @@ class UserProfile extends StatelessWidget {
 }
 
 class _AdditionalContent extends StatelessWidget {
-  const _AdditionalContent({
-    super.key,
-  });
+  const _AdditionalContent();
 
   @override
   Widget build(BuildContext context) {
@@ -87,13 +86,15 @@ class _AdditionalContent extends StatelessWidget {
               Icon(Icons.square_rounded,
                   color: Color.fromARGB(255, 154, 142, 36)),
               SizedBox(width: 5),
-              Text('Reactiva Premium con un -50%',
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black)),
+              Expanded(
+                child: Text('Reactiva Premium con un -50%',
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black)),
+              ),
             ],
           ),
           SizedBox(height: 10),
@@ -103,9 +104,12 @@ class _AdditionalContent extends StatelessWidget {
             children: [
               Icon(Icons.bookmark, color: Color(0xff5e5e5e)),
               SizedBox(width: 10),
-              Text('Marcapáginas',
-                  style: TextStyle(
-                      color: Colors.black, fontWeight: FontWeight.bold)),
+              Expanded(
+                child: Text('Marcapáginas',
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.bold)),
+              ),
               SizedBox(width: 10),
             ],
           )
@@ -116,7 +120,7 @@ class _AdditionalContent extends StatelessWidget {
 }
 
 class _UserSkills extends StatelessWidget {
-  const _UserSkills({super.key});
+  const _UserSkills();
 
   @override
   Widget build(BuildContext context) {
@@ -136,13 +140,11 @@ class _UserSkills extends StatelessWidget {
 }
 
 class _UserName extends StatelessWidget {
-  const _UserName({
-    super.key,
-  });
+  const _UserName();
 
   @override
   Widget build(BuildContext context) {
-    return const Text('Juan Felipe Garcia Quintana',
+    return const Text('MobileX dev',
         textAlign: TextAlign.center,
         style: TextStyle(
             fontSize: 20, color: Colors.black, fontWeight: FontWeight.w500));
@@ -151,7 +153,6 @@ class _UserName extends StatelessWidget {
 
 class _UserHeader extends StatelessWidget {
   const _UserHeader({
-    super.key,
     required this.sizeM,
   });
 
@@ -160,14 +161,12 @@ class _UserHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final avatarPos = (sizeM.width > 960) ? 0.095 : 0.1;
-    return Container(
+    return SizedBox(
       width: sizeM.width * 1,
       height: sizeM.height * 0.15,
-      // color: Colors.yellow,
       child: Stack(
         children: [
-          Container(
-            // color: Colors.red,
+          SizedBox(
             width: sizeM.width * 1,
             height: sizeM.height * 0.1,
             child: const ClipRRect(
@@ -184,12 +183,14 @@ class _UserHeader extends StatelessWidget {
               height: sizeM.height * avatarPos,
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.white,
+                  color: Colors.grey,
                   border: Border.all(width: 1, color: Colors.white)),
-              child: const Image(
-                image: AssetImage('assets/profile.png'),
-                fit: BoxFit.fill,
-              ),
+              child: Image(
+                  image: AssetImage('assets/mylogo.png'), fit: BoxFit.cover),
+              // child: const Image(
+              //   image: AssetImage('assets/profile.png'),
+              //   fit: BoxFit.fill,
+              // ),
             ),
           ),
         ],

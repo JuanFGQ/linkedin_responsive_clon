@@ -1,0 +1,55 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+
+        
+
+        {
+            "name": "linkedin_responsive_clon",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "linkedin_responsive_clon (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "linkedin_responsive_clon (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "Chrome web",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "chrome"
+        },
+        
+        {
+            "name": "Tablet",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "emulator-5554"
+        },
+        
+        {
+            "name": "Phone",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "emulator-5556"
+        },
+    ],
+    "compounds": [
+        {
+            "name": "Responsive Test",
+            "configurations": ["Chrome web","Phone","Tablet"]
+        }
+    ]
+}

@@ -7,19 +7,17 @@ import 'package:linkedin_responsive_clon/widgets/user_post.dart';
 
 import '../widgets/app_bar_icons.dart';
 import '../widgets/mostrar_mas.dart';
+import '../widgets/screen_size.dart';
 
 class SmallPage extends StatelessWidget {
   const SmallPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    print('MOBILE WIDTH ${size.width}');
-    print('MOBILE HEIGHT ${size.height}');
-
+    final size = MediaQuery.of(context).size.width;
     return Scaffold(
         appBar: PreferredSize(
-            preferredSize: Size.fromHeight(65),
+            preferredSize: const Size.fromHeight(65),
             child: AppBarWidget(
               menuItem: menuMobileSizeIcon,
               searchItem: AppBarIcons(
@@ -30,14 +28,15 @@ class SmallPage extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                const UserProfile(),
-                const MostrarMas(),
-                const UserCreatePost(),
-                const SizedBox(height: 20),
-                const UserPost(),
-                const SizedBox(height: 20),
+                // ScreenSize(text: 'SMALL ${size.toInt()}'),
 
-                const UserPost(),
+                UserProfile(),
+                ShowMore(),
+                UserCreatePost(),
+                SizedBox(height: 20),
+                UserPost(),
+                SizedBox(height: 20),
+                UserPost(),
 //
               ],
             ),

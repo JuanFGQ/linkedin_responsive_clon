@@ -9,25 +9,15 @@ class ResponsiveHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size.width;
-
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (constraints.maxWidth < 400) {
-          print('PHONE ${constraints.maxWidth}');
-
-          return MobileSize();
+        if (constraints.maxWidth < 500) {
+          return const MobileSize();
         } else if (constraints.maxWidth < 600) {
-          print('TABLET ${constraints.maxWidth}');
-          return SmallPage();
+          return const SmallPage();
         } else if (constraints.maxWidth < 950) {
-          print('TABLET ${constraints.maxWidth}');
-
-          return TabletPage();
+          return const TabletPage();
         } else {
-          print('DESK ${constraints.maxWidth}');
-          //1094
-
           return const DesktopPage();
         }
       },

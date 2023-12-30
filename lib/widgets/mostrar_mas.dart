@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MostrarMas extends StatelessWidget {
-  const MostrarMas({
+class ShowMore extends StatelessWidget {
+  const ShowMore({
     super.key,
   });
 

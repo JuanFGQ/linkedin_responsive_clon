@@ -24,8 +24,10 @@ class AppBarWidget extends StatelessWidget {
       child: Row(
         children: [
           SizedBox(width: size > 1340 ? 140 : 0),
-          const _LinkedInMainLogo(),
+          _LinkedInMainLogo(),
+          //*
           searchItem,
+          //*
           const Visibility(visible: true, child: SizedBox(width: 10)),
           AppBarIcons(icon: Icons.home, text: 'Inicio', onPressed: () {}),
           AppBarIcons(icon: Icons.people, text: 'Mi red', onPressed: () {}),
@@ -39,7 +41,9 @@ class AppBarWidget extends StatelessWidget {
           const SizedBox(width: 15),
           _UserCircleAvatar(size: size),
           const SizedBox(width: 25),
+          //*
           menuItem,
+          //*
           const SizedBox(width: 10),
           Visibility(
               visible: size > 600 ? true : false, child: const _PremiumBanner())
@@ -50,10 +54,6 @@ class AppBarWidget extends StatelessWidget {
 }
 
 class _LinkedInMainLogo extends StatelessWidget {
-  const _LinkedInMainLogo({
-    super.key,
-  });
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -67,7 +67,6 @@ class _LinkedInMainLogo extends StatelessWidget {
 
 class _UserCircleAvatar extends StatelessWidget {
   const _UserCircleAvatar({
-    super.key,
     required this.size,
   });
 
@@ -75,29 +74,27 @@ class _UserCircleAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // color: Colors.red,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const CircleAvatar(
-              radius: 14, backgroundImage: AssetImage('assets/mylogo.png')),
-          Visibility(
-            visible: size > 600 ? true : false,
-            child: const Row(
-              children: [Text('Yo'), Icon(Icons.arrow_drop_down_sharp)],
-            ),
-          )
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const CircleAvatar(
+          radius: 14,
+          backgroundColor: Colors.grey,
+          // backgroundImage: AssetImage('assets/mylogo.png'),
+        ),
+        Visibility(
+          visible: size > 600 ? true : false,
+          child: const Row(
+            children: [Text('Yo'), Icon(Icons.arrow_drop_down_sharp)],
+          ),
+        )
+      ],
     );
   }
 }
 
 class _PremiumBanner extends StatelessWidget {
-  const _PremiumBanner({
-    super.key,
-  });
+  const _PremiumBanner();
 
   @override
   Widget build(BuildContext context) {

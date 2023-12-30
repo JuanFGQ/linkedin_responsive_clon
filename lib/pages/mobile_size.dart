@@ -1,7 +1,4 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:linkedin_responsive_clon/widgets/user_post.dart';
 import 'package:linkedin_responsive_clon/widgets/vertical_icon_reaction.dart';
 
@@ -71,8 +68,7 @@ class _MobileSizeState extends State<MobileSize> {
 class _CustomBottomBar extends StatefulWidget {
   final ScrollController scrollController;
   final Size size;
-  const _CustomBottomBar(
-      {super.key, required this.size, required this.scrollController});
+  const _CustomBottomBar({required this.size, required this.scrollController});
 
   @override
   State<_CustomBottomBar> createState() => _CustomBottomBarState();
@@ -96,7 +92,7 @@ class _CustomBottomBarState extends State<_CustomBottomBar> {
     previousScroll = scrollOffset;
 
     return AnimatedContainer(
-      duration: Duration(milliseconds: 180),
+      duration: const Duration(milliseconds: 180),
       curve: Curves.easeIn,
       padding: const EdgeInsets.only(left: 5, right: 5, top: 5),
       decoration: const BoxDecoration(
@@ -120,7 +116,6 @@ class _CustomBottomBarState extends State<_CustomBottomBar> {
 
 class _AppBar extends StatelessWidget {
   const _AppBar({
-    super.key,
     required this.size,
   });
 

@@ -7,7 +7,7 @@ class NewsColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         width: 290,
-        margin: EdgeInsets.only(left: 35, top: 40, right: 135),
+        margin: const EdgeInsets.only(left: 35, top: 40, right: 135),
         child: const Placeholder());
   }
 }

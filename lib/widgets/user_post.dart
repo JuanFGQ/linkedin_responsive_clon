@@ -46,9 +46,7 @@ class UserPost extends StatelessWidget {
 }
 
 class _UserPostsInteraction extends StatelessWidget {
-  const _UserPostsInteraction({
-    super.key,
-  });
+  const _UserPostsInteraction();
 
   @override
   Widget build(BuildContext context) {
@@ -67,9 +65,7 @@ class _UserPostsInteraction extends StatelessWidget {
 }
 
 class _FeedbackReactions extends StatelessWidget {
-  const _FeedbackReactions({
-    super.key,
-  });
+  const _FeedbackReactions();
 
   @override
   Widget build(BuildContext context) {
@@ -91,9 +87,7 @@ class _FeedbackReactions extends StatelessWidget {
 }
 
 class _PostImage extends StatelessWidget {
-  const _PostImage({
-    super.key,
-  });
+  const _PostImage();
 
   @override
   Widget build(BuildContext context) {
@@ -108,9 +102,7 @@ class _PostImage extends StatelessWidget {
 }
 
 class _TextPostContent extends StatelessWidget {
-  const _TextPostContent({
-    super.key,
-  });
+  const _TextPostContent();
 
   @override
   Widget build(BuildContext context) {
@@ -150,7 +142,7 @@ class _PostInformation extends StatelessWidget {
               ],
             ),
             // SizedBox(height: 1),
-            Text('Juan Felipe Garcia Quintana',
+            Text('MobileX dev',
                 style: TextStyle(
                     fontWeight: FontWeight.normal,
                     color: Colors.black54,
@@ -170,6 +162,7 @@ class _PostInformation extends StatelessWidget {
                         fontWeight: FontWeight.normal,
                         color: Colors.black54)),
                 SizedBox(width: 10),
+                // ignore: deprecated_member_use
                 FaIcon(FontAwesomeIcons.earth, size: 15, color: Colors.black54)
               ],
             )
@@ -181,9 +174,7 @@ class _PostInformation extends StatelessWidget {
 }
 
 class _UserPostedInAGroup extends StatelessWidget {
-  const _UserPostedInAGroup({
-    super.key,
-  });
+  const _UserPostedInAGroup();
 
   @override
   Widget build(BuildContext context) {
@@ -204,7 +195,11 @@ class _UserPostedInAGroup extends StatelessWidget {
             top: 32,
             left: 32,
             child: CircleAvatar(
-                radius: 23, backgroundImage: AssetImage('assets/profile.png')),
+              radius: 23,
+              // backgroundImage: AssetImage('assets/profile.png'),
+              backgroundColor: Colors.grey,
+              backgroundImage: AssetImage('assets/mylogo.png'),
+            ),
           )
         ],
       ),
