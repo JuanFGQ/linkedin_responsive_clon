@@ -1,16 +1,14 @@
-# linkedin_responsive_clon
+# linkedin responsive clon
 
-A new Flutter project.
+  # :page_with_curl: **_App Features_**
+  * Responsive design
+  * widgets reuse
+  * UI option handler 
 
-## Getting Started
+ ### Check on my social Networks the guide and the explanation for this project 
 
-This project is a starting point for a Flutter application.
+- [![TikTok](https://img.shields.io/badge/TikTok-000000?style=for-the-badge&logo=tiktok&logoColor=white)](https://www.tiktok.com/@mobilexdev)
+- [![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@JuanFGQ)
+- [![Youtube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@mobilexdev)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Captura de pantalla 2024-01-02 140753](https://github.com/JuanFGQ/linkedin_responsive_clon/assets/97085649/d1f2ebac-f245-452d-b8c5-04823eab0148)
