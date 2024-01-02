@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:linkedin_responsive_clon/widgets/app_bar.dart';
+import 'package:linkedin_responsive_clon/widgets/app_bar_widget.dart';
 import 'package:linkedin_responsive_clon/costants/constants.dart';
 import 'package:linkedin_responsive_clon/widgets/user_profile.dart';
 import 'package:linkedin_responsive_clon/widgets/user_create_post.dart';
 import 'package:linkedin_responsive_clon/widgets/user_post.dart';
 
 import '../widgets/app_bar_icons.dart';
-import '../widgets/mostrar_mas.dart';
+import '../widgets/show_more.dart';
 import '../widgets/screen_size.dart';
 
 class SmallPage extends StatelessWidget {
@@ -28,15 +28,15 @@ class SmallPage extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                // ScreenSize(text: 'SMALL ${size.toInt()}'),
+                ScreenSize(text: 'SMALL ${size.toInt()}'),
 
-                UserProfile(),
-                ShowMore(),
-                UserCreatePost(),
-                SizedBox(height: 20),
-                UserPost(),
-                SizedBox(height: 20),
-                UserPost(),
+                const UserProfile(),
+                const ShowMore(),
+                const UserCreatePost(),
+                const SizedBox(height: 20),
+                const UserPost(),
+                const SizedBox(height: 20),
+                const UserPost(),
 //
               ],
             ),

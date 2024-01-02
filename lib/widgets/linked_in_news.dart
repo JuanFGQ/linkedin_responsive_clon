@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:linkedin_responsive_clon/costants/constants.dart';
-import 'package:linkedin_responsive_clon/widgets/mostrar_mas.dart';
+import 'package:linkedin_responsive_clon/widgets/show_more.dart';
 
 class LinkedInNews extends StatelessWidget {
   const LinkedInNews({super.key});

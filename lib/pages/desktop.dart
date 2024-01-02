@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:linkedin_responsive_clon/widgets/app_bar.dart';
+import 'package:linkedin_responsive_clon/widgets/app_bar_widget.dart';
 import 'package:linkedin_responsive_clon/costants/constants.dart';
 import 'package:linkedin_responsive_clon/widgets/linked_in_news.dart';
 import 'package:linkedin_responsive_clon/widgets/screen_size.dart';
@@ -28,17 +28,23 @@ class DesktopPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // ScreenSize(text: 'DESKTOP ${size.width.toInt()}'),
+            //*
+            ScreenSize(text: 'DESKTOP ${size.width.toInt()}'),
+            //*
+
             Container(
                 margin: EdgeInsets.only(top: 30, left: margin, right: margin),
                 child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(width: size.width > 1340 ? 130 : 15),
+                      //*
                       FirstColum(size: size),
                       const SizedBox(width: 25),
+                      //*
                       SecondColum(size: size),
                       const SizedBox(width: 25),
+                      //*D
                       ThirdColum(size: size),
                       SizedBox(width: size.width > 1340 ? 120 : 0),
                     ]))

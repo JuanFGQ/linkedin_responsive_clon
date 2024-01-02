@@ -22,12 +22,6 @@ var borderDecoration = BoxDecoration(
         Border.all(width: 1, color: const Color.fromARGB(92, 158, 158, 158)));
 
 double dynamicMargin(double screenWidth) {
-  // WIDGETS MARGIN
-  //>600 0 de margen
-  //656 a 10 de margen
-  //760 a 64 de margen
-  //844 a 110 de margen
-  //844 > pass to desktop
   if (screenWidth > 844) {
     return 110;
   } else if (screenWidth > 760) {

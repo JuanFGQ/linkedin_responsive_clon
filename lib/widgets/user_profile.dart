@@ -9,7 +9,6 @@ class UserProfile extends StatelessWidget {
     final sizeM = MediaQuery.of(context).size;
     final userProfileWidth =
         sizeM.width > 1120 ? sizeM.width * 0.21 : double.infinity;
-    //0.21
 
     return LayoutBuilder(builder: (context, constraints) {
       final size = constraints.maxWidth;
@@ -185,7 +184,7 @@ class _UserHeader extends StatelessWidget {
                   shape: BoxShape.circle,
                   color: Colors.grey,
                   border: Border.all(width: 1, color: Colors.white)),
-              child: Image(
+              child: const Image(
                   image: AssetImage('assets/mylogo.png'), fit: BoxFit.cover),
               // child: const Image(
               //   image: AssetImage('assets/profile.png'),

@@ -48,7 +48,6 @@ class _MobileSizeState extends State<MobileSize> {
                 elevation: 2,
                 expandedHeight: size.height * 0.04,
                 floating: true,
-                // actions: [CircleAvatar(), Container(width: 50, child: TextField())],
                 flexibleSpace: _AppBar(size: size),
               ),
               SliverList(
